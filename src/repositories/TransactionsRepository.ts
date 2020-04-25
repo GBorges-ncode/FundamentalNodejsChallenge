@@ -28,11 +28,13 @@ class TransactionsRepository {
       (accu: Balance, cur: Transaction) => {
         switch (cur.type) {
           case 'income':
-            accu.income = cur.value;
+            // eslint-disable-next-line no-param-reassign
+            accu.income += cur.value;
             break;
 
           case 'outcome':
-            accu.outcome = cur.value;
+            // eslint-disable-next-line no-param-reassign
+            accu.outcome += cur.value;
             break;
 
           default:
